@@ -1,0 +1,141 @@
+.container
+{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    -webkit-transform: translate(50%, 50%);
+    transform: translate(-50%, -50%);
+}
+.contact
+{
+    background: rgba(255,255,255, 0.06);
+    padding: 3em;
+    height: 500px;
+    border-radius: 20px;
+    border-left: 1px solid rgba(255,255,255, 0.3);
+    border-top: 1px solid rgba(255,255,255, 0.3);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0,0,0, 0.2);
+    text-align: center;
+    position: relative;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.contact p
+{
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    opacity: 0.7;
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 60px;
+    text-shadow: 2px 2px 4px rgba(0,0,0, 0.2);
+}
+.contact a
+{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+}
+.contact a:hover
+{
+    text-shadow: 2px 2px 6px #00000040;
+}
+.contact a:active
+{
+    text-shadow: none
+}
+.contact input
+{
+    background: transparent;
+    width: 350px;
+    padding: 1em;
+    margin-bottom: 2em;
+    border: none;
+    border-left: 1px solid rgba(255,255,255, 0.3);
+    border-top: 1px solid rgba(255,255,255, 0.3);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0,0,0, 0.2);
+    color: rgb(74, 165, 0);
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0,0,0, 0.2);
+    border-radius: 5000px;
+
+}
+
+.contact textarea
+{
+    background: transparent;
+    width: 350px;
+    height: 150px;
+    padding: 1em;
+    margin-bottom: 2em;
+    border: none;
+    border-left: 1px solid rgba(255,255,255, 0.3);
+    border-top: 1px solid rgba(255,255,255, 0.3);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0,0,0, 0.2);
+    color: rgb(74, 165, 0);
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0,0,0, 0.2);
+    border-radius: 5000px;
+
+}
+
+.contact input:hover
+{
+    background: rgba(255,255,255, 0.1);
+    box-shadow: 4px 4px 60px 8px rgba(0,0,0, 0.2);
+}
+.contact input[type="email"]:focus,
+.contact input[type="password"]:focus
+{
+    background: rgba(255,255,255, 0.1);
+    box-shadow: 4px 4px 60px 8px rgba(0,0,0, 0.2);   
+}
+.contact input[type="button"]
+{
+    margin-top: 10px;
+    width: 150px;
+    font-size: 1rem;
+}
+.contact input[type="button"]:hover
+{
+    cursor: pointer;
+}
+.contact:hover
+{
+    margin: 4px;
+}
+
+::placeholder
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 4px rgba(0,0,0, 0.4);
+}
+::-webkit-input-placeholder
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 4px rgba(0,0,0, 0.4);
+}
+a,
+input:focus,
+button:focus,
+select:focus
+{
+    outline: none;
+}
