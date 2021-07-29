@@ -5,12 +5,12 @@
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(to right, #3f5efb, #fc466b);
 } */
-.container
+.containerl
 {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
-    -webkit-transform: translate(50%, 50%);
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 .login

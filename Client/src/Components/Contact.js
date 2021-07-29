@@ -4,7 +4,7 @@ import './contact.css';
 function Contact() {
     return (
         <>
-            <div className="container">
+            <div className="containerc">
             <form className="contact">
                     <p>Get in touch</p>
                     <input type="email" placeholder="Email" /><br />

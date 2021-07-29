@@ -5,7 +5,7 @@ import './registration.css';
 function Registration() {
     return (
         <>
-            <div className="container">
+            <div className="containerr">
                 <form>
                     <p>Register Here</p>
                     <input type="text" placeholder="Name" /><br />
