@@ -79,9 +79,10 @@ router.post('/register', async (req, res) => {
 })
 
 
-router.get('/signin', (req, res) => {
-    res.send(`Hello Login world from the server`);
-});
+// router.get('/signin', (req, res) => {
+//     res.send(`Hello Login world from the server`);
+// });
+
 // login
 router.post('/signin', async (req, res) =>{
 
