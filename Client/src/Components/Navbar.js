@@ -1,8 +1,53 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from "../logo.svg"
 
+import { UserContext } from '../App'
+
+
 function Navbar() {
+
+    const { state, dispatch } = useContext(UserContext)
+
+    const RenderMenu = () => {
+        if (state) {
+            return (
+                <>
+                    <li className="nav-item">
+                        <NavLink className="nav-link active" to="/">Home <span className="sr-only">(current)</span></NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/about">About</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/contact">Contact</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/logout">Logout</NavLink>
+                    </li>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <li className="nav-item">
+                        <NavLink className="nav-link active" to="/">Home <span className="sr-only">(current)</span></NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/contact">Contact</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/login">Login</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/registration">Register</NavLink>
+                    </li>
+                </>
+            )
+
+        }
+    }
+
     return (
         <div>
             <>
@@ -16,24 +61,9 @@ function Navbar() {
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
-                                <NavLink className="nav-link active" to="/">Home <span className="sr-only">(current)</span></NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/about">About</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/contact">Contact</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/login">Login</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/registration">Register</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/logout">Logout</NavLink>
-                            </li>
+
+                            <RenderMenu />
+                            
                         </ul>
                     </div>
                 </nav>

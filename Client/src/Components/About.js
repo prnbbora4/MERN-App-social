@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useHistory} from 'react-router-dom'
-import propic from "../images/photo1.jpg"
+import propic from "../images/60111.jpg"
 import "./about.css"
 
 
@@ -52,7 +52,7 @@ function About() {
                 <form method="GET">
                     <div className="row">
                         <div className="col-md-4">
-                            <img src={propic} alt="pranab" />
+                            <img src={propic} alt="pranab" width="180" height="200" />
                         </div>
 
                         <div className="col-md-6">
