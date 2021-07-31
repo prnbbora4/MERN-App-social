@@ -1,12 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import {useHistory} from 'react-router-dom'
 import propic from "../images/photo1.jpg"
 import "./about.css"
+
+
 function About() {
+
+    const history = useHistory();
+
+    // dynamic data the about page 
+    const [userData, setUserData] = useState('');
+
+    // visit about page with authenticate
+    const callAboutPage = async () => {
+        try {
+            const res = await fetch('/about', {
+                method: "GET",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                credentials: "include"
+            });
+
+            const data = await res.json();
+            console.log(data);
+            setUserData(data);
+
+            if(!res.status === 200){
+                const error = new Error(res.error);
+                throw error;
+            }
+
+            
+        } catch (error) {
+            console.log(error);
+            history.push('/login');
+        }
+    }
+
+    // use of useEffect hooks to call function to load first
+    useEffect(() => {
+        callAboutPage();
+    }, []);
+
+
     return (
         <>
             {/* <div className="container"> */}
                 <div className="about">
-                <form method="">
+                <form method="GET">
                     <div className="row">
                         <div className="col-md-4">
                             <img src={propic} alt="pranab" />
@@ -15,8 +58,8 @@ function About() {
                         <div className="col-md-6">
                             <div className="profile-head">
                                 
-                                <h5>Pranab Bora</h5>
-                                <h5>MERN Stack developer</h5>
+                                <h5>{ userData.name }</h5>
+                                <h5>{ userData.work }</h5>
 
                                 <ul className="nav nav-tabs">
                                     <li className="nav-item">
@@ -55,7 +98,7 @@ function About() {
                                         <label> Name</label>
                                     </div>
                                     <div className="col-md-6">
-                                        <p> Pranab Bora</p>
+                                        <p> { userData.name }</p>
                                     </div>
                                 </div>
 
@@ -64,7 +107,7 @@ function About() {
                                         <label> Email</label>
                                     </div>
                                     <div className="col-md-6">
-                                        <p> a@b.com</p>
+                                        <p> { userData.email }</p>
                                     </div>
                                 </div>
 
@@ -73,7 +116,7 @@ function About() {
                                         <label> Phone</label>
                                     </div>
                                     <div className="col-md-6">
-                                        <p> 7845128956</p>
+                                        <p> { userData.phone }</p>
                                     </div>
                                 </div>
 
