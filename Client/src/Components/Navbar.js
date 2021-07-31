@@ -31,6 +31,9 @@ function Navbar() {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/registration">Register</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/logout">Logout</NavLink>
+                            </li>
                         </ul>
                     </div>
                 </nav>

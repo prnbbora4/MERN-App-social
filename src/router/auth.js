@@ -136,4 +136,12 @@ router.get('/getData', authenticate, (req, res) => {
     res.send(req.rootUser);
 });
 
+router.get('/logout', (req, res) => {
+    console.log(`Hello my logout`);
+    res.clearCookie('jwtoken', {
+        path: "/"
+    });
+    res.status(200).send('User logout');
+});
+
 module.exports = router;

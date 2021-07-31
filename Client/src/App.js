@@ -7,6 +7,7 @@ import Login from './Components/Login'
 import Navbar from './Components/Navbar'
 import Error from './Components/Error'
 import Registration from './Components/Registration'
+import Logout from './Components/Logout'
 import './App.css';
 
 function App() {
@@ -34,6 +35,10 @@ function App() {
 
           <Route path="/registration">
             <Registration />
+          </Route>
+
+          <Route path="/logout">
+            <Logout />
           </Route>
 
           <Route>
