@@ -4,7 +4,7 @@ import './contact.css';
 function Contact() {
 
      // dynamic data the about page 
-     const [userData, setUserData] = useState('');
+     const [userData, setUserData] = useState({name:"", email: "", message: ""});
 
      // visit contact page with authenticate
      const callContactPage = async () => {
@@ -18,7 +18,7 @@ function Contact() {
  
              const data = await res.json();
              console.log(data);
-             setUserData(data);
+             setUserData({ ...userData, name:data.name, email:data.email });
  
              if(!res.status === 200){
                  const error = new Error(res.error);
@@ -36,15 +36,52 @@ function Contact() {
          callContactPage();
      }, []);
 
+
+    //  storing data
+    const handleInputs = (e) => {
+        const name = e.target.name;
+        const value = e.target.value
+
+        setUserData({ ...userData, [name] : value})
+
+    } 
+
+    // send data to the backend
+    const contactForm = async (e) => {
+        e.preventDefault();
+
+        const {name, email, message} = userData;
+
+        const res = await fetch('/contact', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name, email, message
+            })
+        });
+
+        const data = await res.json();
+
+        if(!data){
+            console.log("message not send");
+        }else{
+            alert("Message sent")
+            setUserData({ ...setUserData, message: ""});
+        }
+    }
+
+
     return (
         <>
             <div className="containerc">
-            <form className="contact">
+            <form method="POST" className="contact">
                     <p>Get in touch</p>
-                    <input type="email" value={userData.email} placeholder="Email" /><br />
-                    <input type="text" value={userData.name} placeholder="Name" /><br />
-                    <textarea  placeholder="Message" /><br />
-                    <input type="button" value="Send Message" /> &nbsp;
+                    <input type="email" name="email" onChange={handleInputs} value={userData.email} placeholder="Email" /><br />
+                    <input type="text" name="name" onChange={handleInputs} value={userData.name} placeholder="Name" /><br />
+                    <textarea name="message" onChange={handleInputs} value={userData.message} placeholder="Message" /><br />
+                    <input type="button" onClick={contactForm} value="Send Message" /> &nbsp;
                     <br />
                 </form>
 

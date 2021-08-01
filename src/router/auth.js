@@ -131,6 +131,32 @@ router.get('/about', authenticate, (req, res) => {
     res.send(req.rootUser);
 });
 
+router.post('/contact', authenticate, async (req, res) => {
+    // console.log(`Hello my contact`);
+    try {
+        const {name, email, message} = req.body;
+
+        if(!name || !email || !message){
+            return res.json({error: "fill the form"})
+       }
+
+       const userContact = await User.findOne({_id : req.UserID})
+
+       if(userContact){
+            const userMessage = await userContact.addMessage(name, email, message);
+
+            await userContact.save();
+
+            res.status(200).json({message: "user contact saved"})
+
+       }
+
+    } catch (error) {
+        console.log(error);
+    }
+
+});
+
 router.get('/getData', authenticate, (req, res) => {
     console.log(`Hello my contact`);
     res.send(req.rootUser);
