@@ -17,6 +17,9 @@ app.use(require('./router/auth'));
 
 const PORT = process.env.PORT || 5000;
 
+if(process.env.NODE_ENV == "production"){
+    app.use(express.static("Client/build"));
+}
 
 app.listen(PORT, () => {
     console.log(`App is listening at http://localhost:${PORT}`);
